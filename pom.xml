@@ -9,22 +9,10 @@
     <version>1.0-SNAPSHOT</version>
     <dependencies>
         <dependency>
-            <groupId>org.jetbrains</groupId>
-            <artifactId>annotations</artifactId>
-            <version>23.1.0</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.24</version>
-        </dependency>
-        <dependency>
             <groupId>me.xra1ny</groupId>
             <artifactId>applicationapi</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-
     </dependencies>
     <build>
         <plugins>

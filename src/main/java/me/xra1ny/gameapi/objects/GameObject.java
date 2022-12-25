@@ -12,6 +12,12 @@ public interface GameObject {
     void setY(int y);
     int getWidth();
     int getHeight();
+    double getRotation();
+    void setRotation(double rotation);
+    boolean allowTick();
+    void setAllowTick(boolean allowTick);
+    boolean allowRender();
+    void setAllowRender(boolean allowRender);
 
     default boolean collidesWith(@NotNull GameObject gameObject) {
         return collidesWith(gameObject.getX(), gameObject.getY(), gameObject.getWidth(), gameObject.getHeight());
@@ -26,10 +32,14 @@ public interface GameObject {
                 y+height >= getY() && y <= getY()+getHeight();
 
     }
-
     /** Called by the default RenderingEngine when a render has been requested by its Screens Repeatable Task */
     void renderTick(@NotNull Game game, @NotNull Graphics2D gtd);
 
     /** Called by the default LogicEngine when a tick has been requested by its LogicHandler Repeatable Task */
     void logicTick(@NotNull Game game);
+
+    @NotNull
+    Sprite getSprite();
+
+    void setSprite(@NotNull Sprite sprite);
 }

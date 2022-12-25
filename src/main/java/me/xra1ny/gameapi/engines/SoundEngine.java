@@ -28,11 +28,6 @@ public class SoundEngine extends Engine {
         }
     }
 
-    @Override
-    public void onEnable() {
-
-    }
-
     public void playSound(@NotNull String soundFile) {
         try {
             final AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(audioDirectory, soundFile).getAbsoluteFile());
@@ -42,5 +37,10 @@ public class SoundEngine extends Engine {
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             log.error("Cannot Play Sound of File " + soundFile, e);
         }
+    }
+
+    @Override
+    public void onEnable() {
+
     }
 }

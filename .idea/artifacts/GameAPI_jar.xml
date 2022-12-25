@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="GameAPI:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/GameAPI_jar</output-path>
+    <root id="archive" name="GameAPI.jar">
+      <element id="module-output" name="GameAPI" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jetbrains/annotations/23.1.0/annotations-23.1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/me/xra1ny/applicationapi/1.0-SNAPSHOT/applicationapi-1.0-SNAPSHOT.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.24/lombok-1.18.24.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/ch/qos/logback/logback-classic/1.4.5/logback-classic-1.4.5.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/2.0.4/slf4j-api-2.0.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/ch/qos/logback/logback-core/1.4.5/logback-core-1.4.5.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

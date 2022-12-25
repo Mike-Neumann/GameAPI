@@ -1,7 +1,6 @@
 package me.xra1ny.gameapi.screens;
 
 import me.xra1ny.gameapi.Game;
-import me.xra1ny.gameapi.objects.GameObject;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
@@ -15,6 +14,16 @@ public class DefaultGameScreen extends GameScreen {
 
     @Override
     public void renderTick(@NotNull Graphics2D gtd) {
+
+    }
+
+    @Override
+    public void onEnable() {
+
+    }
+
+    @Override
+    public void onDisable() {
 
     }
 

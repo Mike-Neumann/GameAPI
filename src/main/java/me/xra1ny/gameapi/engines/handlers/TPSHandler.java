@@ -26,8 +26,6 @@ public class TPSHandler extends EngineHandler {
         if(logicHandler != null) {
             getEngine().getGame().setCurrentTps(logicHandler.getCountedTicks());
             logicHandler.setCountedTicks(0);
-
-            getEngine().getGame().setTitle("TPS: " + getEngine().getGame().getCurrentTps());
         }
     }
 }

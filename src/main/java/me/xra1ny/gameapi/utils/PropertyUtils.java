@@ -2,6 +2,7 @@ package me.xra1ny.gameapi.utils;
 
 import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,19 +33,28 @@ public class PropertyUtils {
      * @return The Boolean of the specified Key
      */
     public static boolean getBoolean(@NotNull Properties properties, @NotNull String key) {
-        return Boolean.valueOf(getObject(properties, key).toString());
+        try {
+            return Boolean.parseBoolean(String.valueOf(getObject(properties, key)));
+        }catch(NumberFormatException e) {
+            return false;
+        }
     }
 
     /**
      * @return The Integer of the specified Key
      */
     public static int getInt(@NotNull Properties properties, @NotNull String key) {
-        return Integer.parseInt(getObject(properties, key).toString());
+        try {
+            return Integer.parseInt(String.valueOf(getObject(properties, key)));
+        }catch(NumberFormatException e) {
+            return 0;
+        }
     }
 
     /**
      * @return The Object of the specified Key
      */
+    @Nullable
     public static Object getObject(@NotNull Properties properties, @NotNull String key) {
         return properties.getProperty(key);
     }

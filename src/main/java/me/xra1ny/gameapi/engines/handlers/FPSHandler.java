@@ -28,8 +28,6 @@ public class FPSHandler extends EngineHandler {
         if(renderHandler != null) {
             getEngine().getGame().setCurrentFps(renderHandler.getCountedFrames());
             renderHandler.setCountedFrames(0);
-
-            getEngine().getGame().setTitle("FPS: " + getEngine().getGame().getCurrentFps());
         }
     }
 }

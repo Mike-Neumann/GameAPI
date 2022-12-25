@@ -9,6 +9,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
 import java.util.List;
 
 @Slf4j
@@ -25,14 +26,19 @@ public abstract class GameScreen extends Screen {
     @Override
     public void paint(Graphics g) {
         super.paint(g);
-        render((Graphics2D) g);
-    }
 
-    public void render(@NotNull Graphics2D gtd) {
-        renderTick(gtd);
-        for(GameObject gameObject : gameObjects) {
-            gameObject.renderTick(getGame(), gtd);
+        final Graphics2D gtd = (Graphics2D) g;
+
+        try {
+            for(GameObject gameObject : getGameObjects()) {
+                if(gameObject.allowRender()) {
+                    gameObject.renderTick(getGame(), gtd);
+                }
+            }
+        }catch(ConcurrentModificationException ignored) {
+
         }
+        renderTick(gtd);
     }
 
     /** Called when the default RenderingEngine requests a repaint on this GameScreen */

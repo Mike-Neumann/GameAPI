@@ -30,7 +30,9 @@ public class LogicHandler extends EngineHandler {
         countedTicks++;
         final GameScreen screen = getEngine().getGame().getCurrentScreen();
         for(GameObject gameObject : screen.getGameObjects()) {
-            gameObject.logicTick(screen.getGame());
+            if(gameObject.allowTick()) {
+                gameObject.logicTick(screen.getGame());
+            }
         }
     }
 }

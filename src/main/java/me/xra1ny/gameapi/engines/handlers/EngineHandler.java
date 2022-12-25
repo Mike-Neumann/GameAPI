@@ -11,15 +11,11 @@ public abstract class EngineHandler extends RepeatableTask {
 
     public EngineHandler(@NotNull Engine engine) {
         this.engine = engine;
-
-        onEnable();
     }
 
     public EngineHandler(int interval, Engine engine) {
         super(interval);
         this.engine = engine;
-
-        onEnable();
     }
 
     public abstract void onEnable();

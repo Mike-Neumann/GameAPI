@@ -16,7 +16,12 @@ public abstract class Engine {
 
     public Engine(@NotNull Game game) {
         this.game = game;
+    }
 
+    /**
+     * Enabled this Engine
+     */
+    public void enable() {
         onEnable();
     }
 

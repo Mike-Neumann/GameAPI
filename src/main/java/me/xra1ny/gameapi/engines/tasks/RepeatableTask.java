@@ -8,7 +8,7 @@ import java.util.TimerTask;
 
 @Slf4j
 public abstract class RepeatableTask {
-    private Timer timer = new Timer();
+    private Timer timer;
     @Getter
     private final int interval;
 
@@ -22,29 +22,37 @@ public abstract class RepeatableTask {
         }else {
             interval = info.interval();
         }
-
-        initialise();
     }
 
     public RepeatableTask(int interval) {
         this.interval = interval;
-
-        initialise();
     }
 
-    private void initialise() {
-        log.info("Initialising RepeatableTask with Interval: " + interval);
-
+    public void enable() {
         if(timer == null) {
             timer = new Timer();
+            log.info("Initialising RepeatableTask " + this + " + with Interval " + interval);
+
+            timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    tick();
+                }
+            }, 0L, interval);
+        }else {
+            log.error("This RepeatableTask is already running! " + this);
         }
 
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                tick();
-            }
-        }, 0L, interval);
+        onEnable();
+    }
+
+    public abstract void onEnable();
+
+    public void kill() {
+        if(timer != null) {
+            timer.cancel();
+            timer = null;
+        }
     }
 
     public abstract void tick();
