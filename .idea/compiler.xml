@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="GameAPI" target="17" />
+      <module name="GameAPI" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
