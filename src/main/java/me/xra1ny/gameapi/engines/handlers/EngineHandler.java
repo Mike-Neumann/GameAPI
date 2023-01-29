@@ -13,7 +13,7 @@ public abstract class EngineHandler extends RepeatableTask {
         this.engine = engine;
     }
 
-    public EngineHandler(int interval, Engine engine) {
+    public EngineHandler(int interval, @NotNull Engine engine) {
         super(interval);
         this.engine = engine;
     }

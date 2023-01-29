@@ -1,6 +1,5 @@
 package me.xra1ny.gameapi;
 
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -29,7 +28,7 @@ public abstract class Game extends Window {
     @Getter(onMethod = @__(@NotNull))
     private final DefaultGameScreen defaultGameScreen = new DefaultGameScreen(this);
     @Getter
-    private int targetFps = 60;
+    private int targetFps = 144;
     @Getter
     @Setter
     private int currentFps = 0;
@@ -38,6 +37,9 @@ public abstract class Game extends Window {
     @Getter
     @Setter
     private int currentTps = 0;
+    @Getter
+    @Setter
+    private double collisionTolerance;
 
     @Getter(onMethod = @__(@NotNull))
     private final Properties gameProperties;
@@ -53,8 +55,9 @@ public abstract class Game extends Window {
         if(!gamePropertiesFile.exists()) {
             FileUtils.create(gamePropertiesFile);
 
-            properties.setProperty("fps", "60");
+            properties.setProperty("fps", "144");
             properties.setProperty("tps", "100");
+            properties.setProperty("collision-tolerance", "2.5");
             properties.setProperty("sound-directory", "sounds");
 
             PropertyUtils.save(properties, FileUtils.getOutputStream(gamePropertiesFile));
@@ -73,6 +76,11 @@ public abstract class Game extends Window {
         final int tps = PropertyUtils.getInt(gameProperties, "tps");
         if(tps > 0) {
             this.targetTps = tps;
+        }
+
+        final double collisionTolerance = PropertyUtils.getDouble(gameProperties, "collision-tolerance");
+        if(collisionTolerance > 0) {
+            this.collisionTolerance = collisionTolerance;
         }
 
         String soundDirectory = gameProperties.getProperty("sound-directory");

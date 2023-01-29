@@ -33,7 +33,7 @@ public abstract class RepeatableTask {
             timer = new Timer();
             log.info("Initialising RepeatableTask " + this + " + with Interval " + interval);
 
-            timer.schedule(new TimerTask() {
+            timer.scheduleAtFixedRate(new TimerTask() {
                 @Override
                 public void run() {
                     tick();

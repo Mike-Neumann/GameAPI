@@ -18,52 +18,42 @@ public class DefaultGameScreen extends GameScreen {
     }
 
     @Override
+    public void onKeyPress(@NotNull KeyEvent e) {
+
+    }
+
+    @Override
+    public void onKeyRelease(@NotNull KeyEvent e) {
+
+    }
+
+    @Override
+    public void onMousePress(@NotNull MouseEvent e) {
+
+    }
+
+    @Override
+    public void onMouseRelease(@NotNull MouseEvent e) {
+
+    }
+
+    @Override
+    public void onMouseEnterComponent(@NotNull MouseEvent e) {
+
+    }
+
+    @Override
+    public void onMouseExitComponent(@NotNull MouseEvent e) {
+
+    }
+
+    @Override
     public void onEnable() {
 
     }
 
     @Override
     public void onDisable() {
-
-    }
-
-    @Override
-    public void keyTyped(KeyEvent e) {
-
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-
-    }
-
-    @Override
-    public void mouseClick(@NotNull MouseEvent mouseEvent) {
-
-    }
-
-    @Override
-    public void mousePress(@NotNull MouseEvent mouseEvent) {
-
-    }
-
-    @Override
-    public void mouseRelease(@NotNull MouseEvent mouseEvent) {
-
-    }
-
-    @Override
-    public void mouseEnter(@NotNull MouseEvent mouseEvent) {
-
-    }
-
-    @Override
-    public void mouseExit(@NotNull MouseEvent mouseEvent) {
 
     }
 }

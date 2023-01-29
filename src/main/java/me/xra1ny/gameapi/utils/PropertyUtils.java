@@ -47,6 +47,18 @@ public class PropertyUtils {
         try {
             return Integer.parseInt(String.valueOf(getObject(properties, key)));
         }catch(NumberFormatException e) {
+            log.error("", e);
+            return 0;
+        }
+    }
+
+    /**
+     * @return The Double of the specified Key
+     */
+    public static double getDouble(@NotNull Properties properties, @NotNull String key) {
+        try {
+            return Double.parseDouble(String.valueOf(getObject(properties, key)));
+        }catch(NumberFormatException e) {
             return 0;
         }
     }
