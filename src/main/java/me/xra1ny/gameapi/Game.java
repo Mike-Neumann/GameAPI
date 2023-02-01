@@ -40,6 +40,9 @@ public abstract class Game extends Window {
     @Getter
     @Setter
     private double collisionTolerance;
+    @Getter
+    @Setter
+    private float soundVolume;
 
     @Getter(onMethod = @__(@NotNull))
     private final Properties gameProperties;
@@ -59,6 +62,7 @@ public abstract class Game extends Window {
             properties.setProperty("tps", "100");
             properties.setProperty("collision-tolerance", "2.5");
             properties.setProperty("sound-directory", "sounds");
+            properties.setProperty("volume-boost", "0.0");
 
             PropertyUtils.save(properties, FileUtils.getOutputStream(gamePropertiesFile));
 
@@ -87,6 +91,8 @@ public abstract class Game extends Window {
         if(soundDirectory == null) {
             soundDirectory = "sounds";
         }
+
+        this.soundVolume = PropertyUtils.getFloat(gameProperties, "sound-volume");
 
         show(defaultGameScreen);
 

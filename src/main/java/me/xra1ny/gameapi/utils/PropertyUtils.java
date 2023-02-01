@@ -59,7 +59,18 @@ public class PropertyUtils {
         try {
             return Double.parseDouble(String.valueOf(getObject(properties, key)));
         }catch(NumberFormatException e) {
-            return 0;
+            return 0.0D;
+        }
+    }
+
+    /**
+     * @return The Float of the specified Key
+     */
+    public static float getFloat(@NotNull Properties properties, @NotNull String key) {
+        try {
+            return Float.parseFloat(String.valueOf(getObject(properties, key)));
+        }catch(NumberFormatException e) {
+            return 0.0f;
         }
     }
 
