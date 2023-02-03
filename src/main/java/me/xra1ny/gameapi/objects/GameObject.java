@@ -114,4 +114,35 @@ public interface GameObject {
     Sprite getSprite();
 
     void setSprite(@NotNull Sprite sprite);
+
+    default void moveTo(@NotNull GameObject gameObject, double multiplier) {
+        moveTo(gameObject.getX(), gameObject.getY(), multiplier);
+    }
+
+    default void moveTo(@NotNull Point point, double multiplier) {
+        moveTo(point.getX(), point.getY(), multiplier);
+    }
+
+    default void moveTo(double x, double y, double multiplier) {
+        final double angle = getAngle(x, y);
+
+        setXVelocity(Math.cos(angle) + (multiplier/2));
+        setYVelocity(Math.sin(angle) + (multiplier/2));
+    }
+
+    default double getDistance(@NotNull GameObject gameObject) {
+        return getDistance(gameObject.getX(), gameObject.getY());
+    }
+
+    default double getDistance(@NotNull Point point) {
+        return getDistance(point.getX(), point.getY());
+    }
+
+    default double getDistance(double x, double y) {
+        return Point.distance(getX(), getY(), x, y);
+    }
+
+    default double getAngle(double x, double y) {
+        return Math.atan2(y-getY(), x-getX());
+    }
 }
